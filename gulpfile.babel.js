@@ -77,6 +77,7 @@ gulp.task('fonts', () => {
 
 gulp.task('extras', () => {
   return gulp.src([
+    'app/CNAME',
     'app/*.*',
     '!app/*.html'
   ], {
@@ -160,5 +161,5 @@ gulp.task('default', ['clean'], () => {
 });
 
 gulp.task('gh-pages', () => {
-  ghpages.publish(path.join(__dirname, 'dist'), function(){console.log("DONE gh-pages")});
+  ghpages.publish(path.join(__dirname, 'dist'), function(err){console.log("DONE gh-pages " + err)});
 })
