@@ -4,6 +4,8 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
+import ghpages from 'gh-pages';
+import path from 'path';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -156,3 +158,7 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
+
+gulp.task('gh-pages', () => {
+  ghpages.publish(path.join(__dirname, 'dist'), function(){console.log("DONE gh-pages")});
+})
