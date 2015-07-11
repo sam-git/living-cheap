@@ -163,7 +163,3 @@ gulp.task('default', ['clean'], () => {
 gulp.task('gh-pages', ['build'], () => {
   ghpages.publish(path.join(__dirname, 'dist'), function(err){console.log("DONE gh-pages " + err)});
 })
-
-gulp.task('gh-pages', () => {
-  ghpages.publish(path.join(__dirname, 'dist'), function(err){console.log("DONE gh-pages " + err)});
-})
